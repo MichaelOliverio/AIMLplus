@@ -61,40 +61,39 @@ class AIMLParser:
                         correctedFrame[slot_name] = (slot_corrected_value)
                     elif slot_name:
                         # Se lo slot contiene slot-value
-                        slot_values = slot.findall('slot-value')
-                        if slot_values:
+                        slot_value = slot.findall('slot-value')
+                        if slot_value:
                             frame[slot_name] = []
                             correctedFrame[slot_name] = []
-                            for slot_value in slot_values:
-                                slot_corrected_value = slot_value.get('correctedValue')
+                            for value in slot_value:
+                                corrected_value = value.get('correctedValue')
+                                if not corrected_value:
+                                    corrected_value = value.get('value')
+                                frame[slot_name].append(value.get('value'))
+                                correctedFrame[slot_name].append(corrected_value)
+
+                        slot_values = slot.findall('slot-values')
+                        for slot in slot_values:
+                            slot_value = slot.get('value')
+                            slot_corrected_value = slot.get('correctedValue')
+
+                            if slot_name and slot_value:
                                 if not slot_corrected_value:
-                                    slot_corrected_value = slot_value.get('value')
-                                frame[slot_name].append(slot_value.get('value'))
-                                correctedFrame[slot_name].append(slot_corrected_value)
-
-                for slots in frame_element.findall('slots'):
-                    slot_name = slots.get('name')
-                    for slot in slots.findall('slot'):
-                        slot_value = slot.get('value')
-                        slot_corrected_value = slot.get('correctedValue')
-
-                        if slot_name and slot_value:
-                            if not slot_corrected_value:
-                                slot_corrected_value = slot_value
-                            frame[slot_name] = slot_value
-                            correctedFrame[slot_name] = slot_corrected_value
-                        elif slot_name:
-                            # Se lo slot contiene slot-value
-                            slot_values = slot.findall('slot-value')
-                            if slot_values:
-                                frame[slot_name] = []
-                                correctedFrame[slot_name] = []
-                                for slot_value in slot_values:
-                                    slot_corrected_value = slot_value.get('correctedValue')
-                                    if not slot_corrected_value:
-                                        slot_corrected_value = slot_value.get('value')
-                                    frame[slot_name].append(slot_value.get('value'))
-                                    correctedFrame[slot_name].append(slot_corrected_value)
+                                    slot_corrected_value = slot_value
+                                frame[slot_name] = slot_value
+                                correctedFrame[slot_name] = slot_corrected_value
+                            elif slot_name:
+                                # Se lo slot contiene slot-value
+                                slot_values = slot.findall('slot-value')
+                                if slot_values:
+                                    frame[slot_name] = []
+                                    correctedFrame[slot_name] = []
+                                    for slot_value in slot_values:
+                                        slot_corrected_value = slot_value.get('correctedValue')
+                                        if not slot_corrected_value:
+                                            slot_corrected_value = slot_value.get('value')
+                                        frame[slot_name].append(slot_value.get('value'))
+                                        correctedFrame[slot_name].append(slot_corrected_value)
 
             # Crea la nuova categoria
             category = Category(

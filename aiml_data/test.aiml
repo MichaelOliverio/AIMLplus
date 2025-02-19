@@ -35,13 +35,13 @@
             <act time="0">Ta:request</act>
         </acts>
         <frame>
-            <slots name="transitions">
-                <slot>
+            <slot name="transitions">
+                <slot-values>
                     <slot-value value="q1"/>
                     <slot-value value="q2"/>
                     <slot-value value="?" correctedValue="1"/>
-                </slot>
-            </slots>
+                </slot-values>
+            </slot>
         </frame>
         <input>IS THERE A TRANSITION FROM Q0 TO Q1</input>
         <pattern>* Q0 TO Q1 *</pattern>
@@ -55,13 +55,13 @@
             <act time="0">Ta:request</act>
         </acts>
         <frame>
-            <slots name="transitions">
-                <slot>
+            <slot name="transitions">
+                <slot-values>
                     <slot-value value="q1"/>
                     <slot-value value="q2"/>
                     <slot-value value="?" correctedValue="1"/>
-                </slot>
-            </slots>
+                </slot-values>
+            </slot>
         </frame>
         <input>IS THERE A TRANSITION FROM Q0 TO Q1</input>
         <pattern>* Q0 TO Q1 *</pattern>
@@ -75,13 +75,13 @@
             <act time="0">Ta:request</act>
         </acts>
         <frame>
-            <slots name="transitions">
-                <slot>
+            <slot name="transitions">
+                <slot-values>
                     <slot-value value="q1"/>
                     <slot-value value="q2"/>
                     <slot-value value="1"/>
-                </slot>
-            </slots>
+                </slot-values>
+            </slot>
         </frame>
         <input>IS THERE A TRANSITION FROM Q0 TO Q1</input>
         <pattern>* Q0 TO Q1 *</pattern>
@@ -95,13 +95,13 @@
             <act time="0">Ta:request</act>
         </acts>
         <frame>
-            <slots name="transitions">
-                <slot>
+            <slot name="transitions">
+                <slot-values>
                     <slot-value value="q1"/>
                     <slot-value value="q2"/>
                     <slot-value value="*" correctedValue="1"/>
-                </slot>
-            </slots>
+                </slot-values>
+            </slot>
         </frame>
         <input>IS THERE A TRANSITION FROM Q0 TO Q1</input>
         <pattern>* Q0 TO Q1 *</pattern>
@@ -115,13 +115,13 @@
             <act time="0">Ta:request</act>
         </acts>
         <frame>
-            <slots name="transitions">
-                <slot>
+            <slot name="transitions">
+                <slot-values>
                     <slot-value value="q1"/>
                     <slot-value value="q2"/>
                     <slot-value value="0" correctedValue="1"/>
-                </slot>
-            </slots>
+                </slot-values>
+            </slot>
         </frame>
         <input>IS THERE A TRANSITION FROM Q0 TO Q1</input>
         <pattern>* Q0 TO Q1 *</pattern>
